@@ -1,0 +1,5 @@
+ select wording, concat(coef,'%')
+    from matter;
+
+ select sum(coef)
+    from matter;

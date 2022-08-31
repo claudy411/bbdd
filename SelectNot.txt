@@ -1,0 +1,59 @@
+ select count(*)
+    from test;
+
+ select n.score, s.name, s.firstname
+    from notation n
+    inner join student s
+	on n.numstud=s.numstud;
+
+select n.score, s.name, s.firstname, m.wording
+    from notation n
+    join student s
+	on n.numstud=s.numstud
+	join test t
+	on n.numtest=t.numtest
+	join matter m 
+	on t.codemat=m.codemat;
+
+select score
+	from notation
+	where score >= 10;
+
+select s.name,s.firstname
+	from student s
+	join notation n 
+	on s.numstud=n.numstud
+	where score=20;
+
+select avg(n.score), s.name, s.firstname
+	from student s
+	join notation n 
+	on n.numstud=s.numstud
+	group by n.numstud;
+
+select *
+	from test
+	where testdate between '2014-01-01' and '2014-06-30';
+
+select t.numtest,t.testdate,t.place, m.codemat
+	from test t
+	join matter m 
+	on t.codemat= m.codemat;
+
+select avg(n.score), s.name, s.firstname
+	from student s
+	join notation n 
+	on n.numstud=s.numstud
+	group by n.numstud
+	order by avg(n.score) desc;
+
+select avg(score), numtest
+from notation
+group by numtest
+having count(numstud)<6;
+
+
+
+
+
+

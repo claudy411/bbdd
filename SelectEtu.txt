@@ -1,0 +1,18 @@
+select * 
+	from student;
+
+select * 
+	from student 
+	order by name desc;
+	
+select name, firstname
+    from student
+    where city='Lyon';
+
+select name, firstname, city
+    from student
+    where city like '%ll%';
+
+select firstname
+    from student
+    where name='Dupond' or name='Durand' or name='Martin';
